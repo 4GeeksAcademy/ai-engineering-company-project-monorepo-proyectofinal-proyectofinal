@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrackFlow — Solicitar información</title>
+  <meta name="description"
+        content="Formulario de contacto para empresas interesadas en los servicios logísticos de TrackFlow: almacenaje, última milla y logística inversa." />
+
+  <!-- Open Graph / Redes sociales -->
+  <meta property="og:title" content="TrackFlow — Solicitar información" />
+  <meta property="og:description"
+        content="Cuéntanos más sobre tu empresa y recibe una propuesta personalizada en menos de 24 horas." />
+  <meta property="og:url" content="https://trackflow.com/solicitar" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================ -->
+  <!-- HEADER                                                       -->
+  <!-- ============================================================ -->
+  <header class="bg-white border-b border-gray-200 shadow-sm" role="banner">
+    <nav class="max-w-4xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4"
+         aria-label="Navegación del formulario">
+      <a href="index.html"
+         class="text-xl font-bold tracking-tight text-indigo-700 hover:text-indigo-800 no-underline transition-colors"
+         aria-label="Volver al inicio">
+        ← TrackFlow
+      </a>
+      <a href="index.html"
+         class="text-sm text-gray-500 hover:text-indigo-600 underline transition-colors">
+        Volver a la página principal
+      </a>
+    </nav>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- MAIN CONTENT                                                -->
+  <!-- ============================================================ -->
+  <main id="main-content" role="main" class="py-10 sm:py-16 px-4 sm:px-6">
+
+    <div class="max-w-3xl mx-auto">
+
+      <!-- PAGE HEADING -->
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
+        Solicitar información
+      </h1>
+      <p class="text-gray-500 text-lg mb-2">
+        Cuéntanos más sobre tu empresa y te enviaremos una propuesta personalizada
+        en menos de 24&nbsp;horas.
+      </p>
+      <p class="text-sm text-gray-400">
+        <span class="text-red-500" aria-hidden="true">*</span>
+        Todos los campos marcados son obligatorios.
+      </p>
+
+      <!-- ============================================================ -->
+      <!-- FORM                                                        -->
+      <!-- ============================================================ -->
+      <form id="contactForm"
+            action="#"
+            method="POST"
+            novalidate
+            class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-8 md:p-10 mt-8">
+
+        <!-- ============================================================ -->
+        <!-- DATOS DE LA EMPRESA                                         -->
+        <!-- ============================================================ -->
+        <fieldset class="border border-gray-200 rounded-xl p-4 sm:p-6 mb-6">
+          <legend class="text-xl font-bold text-gray-800 px-2">
+            Datos de la empresa
+          </legend>
+
+          <!-- Nombre de la empresa -->
+          <div class="mb-4">
+            <label for="company"
+                   class="block text-sm font-semibold text-gray-700 mb-1">
+              Nombre de la empresa
+              <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <input type="text"
+                   id="company"
+                   name="company"
+                   required
+                   autocomplete="organization"
+                   placeholder="Ej: Moda Trends SL"
+                   maxlength="120"
+                   class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900
+                          transition-shadow focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                          focus:outline-none" />
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+
+          <!-- Persona de contacto -->
+          <div class="mb-4">
+            <label for="contactPerson"
+                   class="block text-sm font-semibold text-gray-700 mb-1">
+              Persona de contacto
+              <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <input type="text"
+                   id="contactPerson"
+                   name="contactPerson"
+                   required
+                   autocomplete="name"
+                   placeholder="Ej: Ana García López"
+                   maxlength="120"
+                   class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900
+                          transition-shadow focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                          focus:outline-none" />
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+
+          <!-- Email corporativo -->
+          <div class="mb-4">
+            <label for="email"
+                   class="block text-sm font-semibold text-gray-700 mb-1">
+              Email corporativo
+              <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <input type="email"
+                   id="email"
+                   name="email"
+                   required
+                   autocomplete="email"
+                   placeholder="ej: contacto@tudominio.com"
+                   maxlength="254"
+                   class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900
+                          transition-shadow focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                          focus:outline-none" />
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="mb-4">
+            <label for="phone"
+                   class="block text-sm font-semibold text-gray-700 mb-1">
+              Teléfono de contacto
+              <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <input type="tel"
+                   id="phone"
+                   name="phone"
+                   required
+                   autocomplete="tel"
+                   placeholder="Ej: +34 612 345 678"
+                   maxlength="20"
+                   class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900
+                          transition-shadow focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                          focus:outline-none" />
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+
+          <!-- Sitio web -->
+          <div class="mb-4">
+            <label for="website"
+                   class="block text-sm font-semibold text-gray-700 mb-1">
+              Sitio web de la empresa
+              <span class="text-gray-400 text-xs font-normal">(opcional)</span>
+            </label>
+            <input type="url"
+                   id="website"
+                   name="website"
+                   autocomplete="url"
+                   placeholder="https://mistienda.com"
+                   maxlength="500"
+                   class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900
+                          transition-shadow focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                          focus:outline-none" />
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+
+          <!-- País de operación principal -->
+          <div class="mb-4">
+            <label for="country"
+                   class="block text-sm font-semibold text-gray-700 mb-1">
+              País de operación principal
+              <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <select id="country"
+                    name="country"
+                    required
+                    class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 bg-white
+                           transition-shadow focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                           focus:outline-none">
+              <option value="">Selecciona una opción</option>
+              <option value="usa">Estados Unidos</option>
+              <option value="spain">España</option>
+              <option value="both">Ambos (España y EE.&nbsp;UU.)</option>
+              <option value="other">Otro</option>
+            </select>
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+        </fieldset>
+
+        <!-- ============================================================ -->
+        <!-- DATOS DEL PRODUCTO Y VOLUMEN                                -->
+        <!-- ============================================================ -->
+        <fieldset class="border border-gray-200 rounded-xl p-4 sm:p-6 mb-6">
+          <legend class="text-xl font-bold text-gray-800 px-2">
+            Datos del producto y volumen
+          </legend>
+
+          <!-- Tipo de producto -->
+          <div class="mb-4">
+            <label for="productType"
+                   class="block text-sm font-semibold text-gray-700 mb-1">
+              Tipo de producto que manejan
+              <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <select id="productType"
+                    name="productType"
+                    required
+                    class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 bg-white
+                           transition-shadow focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                           focus:outline-none">
+              <option value="">Selecciona una opción</option>
+              <option value="fashion">Moda</option>
+              <option value="electronics">Electrónica</option>
+              <option value="cosmetics">Cosmética</option>
+              <option value="food">Alimentación</option>
+              <option value="other">Otro</option>
+            </select>
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+
+          <!-- Volumen mensual estimado de envíos -->
+          <div class="mb-4">
+            <label for="volume"
+                   class="block text-sm font-semibold text-gray-700 mb-1">
+              Volumen mensual estimado de envíos
+              <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <select id="volume"
+                    name="volume"
+                    required
+                    class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 bg-white
+                           transition-shadow focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                           focus:outline-none">
+              <option value="">Selecciona un rango</option>
+              <option value="0-100">0 – 100 envíos / mes</option>
+              <option value="101-500">101 – 500 envíos / mes</option>
+              <option value="501-2000">501 – 2.000 envíos / mes</option>
+              <option value="2000-plus">Más de 2.000 envíos / mes</option>
+              <option value="not-sure">No estoy seguro</option>
+            </select>
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+
+          <!-- Servicios de interés (checkbox múltiple) -->
+          <div class="mb-4">
+            <span class="block text-sm font-semibold text-gray-700 mb-2"
+                  id="services-label">
+              Servicios de interés
+              <span class="text-red-500" aria-hidden="true">*</span>
+            </span>
+            <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3"
+                 role="group"
+                 aria-labelledby="services-label">
+              <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <input type="checkbox"
+                       name="services"
+                       value="warehouse"
+                       class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-400" />
+                Almacenaje
+              </label>
+              <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <input type="checkbox"
+                       name="services"
+                       value="lastmile"
+                       class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-400" />
+                Última milla
+              </label>
+              <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <input type="checkbox"
+                       name="services"
+                       value="returns"
+                       class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-400" />
+                Logística inversa
+              </label>
+            </div>
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+
+          <!-- ¿Actualmente trabajas con otro 3PL? (radio) -->
+          <div class="mb-4">
+            <span class="block text-sm font-semibold text-gray-700 mb-2"
+                  id="existing3pl-label">
+              ¿Actualmente trabajas con otro 3PL?
+              <span class="text-red-500" aria-hidden="true">*</span>
+            </span>
+            <div class="flex flex-col sm:flex-row gap-3"
+                 role="radiogroup"
+                 aria-labelledby="existing3pl-label">
+              <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <input type="radio"
+                       name="existing3pl"
+                       value="yes"
+                       required
+                       class="border-gray-300 text-indigo-600 focus:ring-indigo-400" />
+                Sí
+              </label>
+              <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <input type="radio"
+                       name="existing3pl"
+                       value="no"
+                       class="border-gray-300 text-indigo-600 focus:ring-indigo-400" />
+                No
+              </label>
+              <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <input type="radio"
+                       name="existing3pl"
+                       value="evaluating"
+                       class="border-gray-300 text-indigo-600 focus:ring-indigo-400" />
+                Estoy evaluando opciones
+              </label>
+            </div>
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+        </fieldset>
+
+        <!-- ============================================================ -->
+        <!-- INFORMACIÓN ADICIONAL                                       -->
+        <!-- ============================================================ -->
+        <fieldset class="border border-gray-200 rounded-xl p-4 sm:p-6 mb-6">
+          <legend class="text-xl font-bold text-gray-800 px-2">
+            Información adicional
+          </legend>
+
+          <!-- Comentarios / necesidades específicas -->
+          <div class="mb-4">
+            <label for="comments"
+                   class="block text-sm font-semibold text-gray-700 mb-1">
+              Comentarios o necesidades específicas
+              <span class="text-gray-400 text-xs font-normal">(opcional)</span>
+            </label>
+            <textarea id="comments"
+                      name="comments"
+                      rows="4"
+                      maxlength="500"
+                      placeholder="Describe brevemente tu operativa, necesidades actuales o cualquier detalle que quieras compartir…"
+                      class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900
+                             transition-shadow focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400
+                             focus:outline-none resize-y"></textarea>
+            <div class="flex justify-between mt-1">
+              <span class="field-error text-xs text-red-500 hidden" role="alert"></span>
+              <span id="commentsCounter"
+                    class="text-xs text-gray-400"
+                    aria-live="polite">0 / 500</span>
+            </div>
+          </div>
+
+          <!-- Acepto política de privacidad -->
+          <div class="mb-4">
+            <label class="flex items-start gap-3 text-sm text-gray-600 cursor-pointer">
+              <input type="checkbox"
+                     id="privacy"
+                     name="privacy"
+                     required
+                     class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-400"
+                     aria-required="true" />
+              <span>
+                He leído y acepto la
+                <a href="#"
+                   class="text-indigo-600 underline hover:text-indigo-700"
+                   aria-label="Abrir política de privacidad">
+                  política de privacidad
+                </a>
+                <span class="text-red-500" aria-hidden="true">*</span>
+              </span>
+            </label>
+            <span class="field-error text-xs text-red-500 mt-1 hidden" role="alert"></span>
+          </div>
+        </fieldset>
+
+        <!-- ============================================================ -->
+        <!-- ACCIONES                                                    -->
+        <!-- ============================================================ -->
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-between mt-4">
+          <button type="submit"
+                  id="submitBtn"
+                  class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
+                         px-8 py-4 rounded-lg text-base transition-all cursor-pointer">
+            Enviar solicitud
+          </button>
+          <button type="reset"
+                  id="resetBtn"
+                  class="w-full sm:w-auto bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium
+                         px-6 py-3 rounded-lg text-sm border border-gray-300 transition-all cursor-pointer"
+                  aria-label="Limpiar todos los campos del formulario">
+            Limpiar formulario
+          </button>
+        </div>
+
+        <p class="mt-6 text-xs text-gray-400 text-center">
+          <span class="text-red-500">*</span> Campos obligatorios
+        </p>
+      </form>
+
+      <!-- ============================================================ -->
+      <!-- TOAST / NOTIFICACIÓN DE ÉXITO                               -->
+      <!-- ============================================================ -->
+      <div id="toast"
+           class="fixed bottom-6 right-6 z-50 max-w-sm bg-green-100 border border-green-300
+                  text-green-800 rounded-xl shadow-lg p-4 pr-10 hidden transition-all duration-300"
+           role="alert"
+           aria-live="polite">
+        <span id="toastMessage"></span>
+        <button id="toastClose"
+                class="absolute top-2 right-2 text-green-800 hover:text-green-900 text-lg leading-none cursor-pointer"
+                aria-label="Cerrar notificación">&times;</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                       -->
+  <!-- ============================================================ -->
+  <footer class="bg-gray-900 text-gray-400 py-8" role="contentinfo">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center text-sm">
+      <p>&copy; 2025 TrackFlow. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="validation.js" defer></script>
+</body>
+</html>

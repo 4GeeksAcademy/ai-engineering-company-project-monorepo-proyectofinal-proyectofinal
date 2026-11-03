@@ -1,0 +1,22 @@
+# ===================================================================
+# docker-compose.yml — TrackFlow Monorepo
+# Orquestación de servicios del proyecto
+# ===================================================================
+
+services:
+  # --- Sitio Web Público -------------------------------------------
+  website:
+    build:
+      context: .                      # Contexto = raíz del monorepo
+      dockerfile: infra/website/Dockerfile
+    ports:
+      - "8080:80"                     # Host:8080 → Contenedor:80
+    container_name: trackflow-website
+    restart: unless-stopped
+    networks:
+      - trackflow-net
+
+networks:
+  trackflow-net:
+    name: trackflow-network
+    driver: bridge

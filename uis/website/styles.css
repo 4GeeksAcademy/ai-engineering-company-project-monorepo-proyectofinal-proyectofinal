@@ -1,0 +1,102 @@
+/* ===================================================================
+   styles.css — TrackFlow
+   Estilos complementarios al CDN de Tailwind CSS
+   =================================================================== */
+
+/* ---- Base & Reset ---- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---- Focus ring utility (Tailwind no expone focus:ring-* en todos los casos) ---- */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid transparent;
+}
+
+/* ---- Field error state (gestionado desde validation.js) ---- */
+.field-error {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin-top: 0.25rem;
+}
+
+/* Cuando un campo es inválido, resaltamos el borde */
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid {
+  border-color: #ef4444; /* red-500 */
+}
+
+input.is-invalid:focus,
+select.is-invalid:focus,
+textarea.is-invalid:focus {
+  --tw-ring-color: #ef4444;
+  border-color: #ef4444;
+}
+
+input.is-valid,
+select.is-valid,
+textarea.is-valid {
+  border-color: #22c55e; /* green-500 */
+}
+
+/* ---- Botón reset: evita que Tailwind sobrescriba el estilo nativo ---- */
+button[type="reset"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ---- Toast animation ---- */
+#toast.show {
+  display: block;
+  animation: toast-in 0.35s ease-out;
+}
+
+#toast.hide {
+  animation: toast-out 0.25s ease-in forwards;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.95);
+  }
+}
+
+/* ---- Print ---- */
+@media print {
+  header,
+  footer,
+  #mobileMenu,
+  #toast {
+    display: none !important;
+  }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
