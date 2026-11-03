@@ -1,0 +1,16 @@
+@import "../styles.css";
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal {
+	position: fixed;
+	max-height: min(88vh, 900px);
+	overflow-y: auto;
+}
+
+.modal::backdrop {
+	background: rgb(21 30 24 / 48%);
+	backdrop-filter: blur(2px);
+}
