@@ -1,6 +1,8 @@
 node_modules/
 dist/
 .next/
+.test-build/
+*.tsbuildinfo
 .env
 .env.*
 !.env.example
