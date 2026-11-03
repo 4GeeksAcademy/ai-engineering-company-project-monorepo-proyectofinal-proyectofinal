@@ -130,6 +130,7 @@ test("ordena sin mutar y aplica criterios secundarios", () => {
 	assert.deepEqual(collections.sortProductsByStock(productSamples, "asc").map(({ stockQuantity }) => stockQuantity), [8, 45, 120]);
 	assert.deepEqual(collections.sortProductsByStock(productSamples, "desc").map(({ stockQuantity }) => stockQuantity), [120, 45, 8]);
 	assert.deepEqual(productSamples.map(({ sku }) => sku), originalSkus);
+	assert.deepEqual(collections.sortCarriersByReliability(carrierSamples, "asc").map(({ name }) => name), ["UPS", "SEUR", "DHL Express"]);
 	assert.deepEqual(collections.sortCarriersByReliability(carrierSamples, "desc").map(({ name }) => name), ["DHL Express", "SEUR", "UPS"]);
 	const productsWithSameCategory = [...productSamples, { ...productSamples[0], sku: "SHOE-BLK-41", stockQuantity: 10 }];
 	assert.deepEqual(
@@ -154,6 +155,8 @@ test("búsqueda binaria devuelve índices correctos y -1 en casos límite", () =
 	assert.equal(search.binarySearchProductByWeight(sortedProducts, 0.8), 1);
 	assert.equal(search.binarySearchProductByWeight(sortedProducts, 99), -1);
 	assert.equal(search.binarySearchProductByWeight([], 0.8), -1);
+	assert.equal(search.binarySearchProductByWeight([productSamples[0]], 0.8), 0);
+	assert.equal(search.binarySearchProductByWeight([productSamples[0]], 0.9), -1);
 	assert.equal(search.binarySearchProductByWeight(sortedProducts, Number.NaN), -1);
 });
 
@@ -213,6 +216,8 @@ test("genera agregaciones y maneja colecciones vacías", () => {
 test("validaciones aceptan datos válidos y rechazan límites incumplidos", () => {
 	assert.equal(validations.validateProduct(productSamples[0]).valid, true);
 	assert.equal(validations.validateProduct({ ...productSamples[0], weightKg: 0 }).valid, false);
+	assert.equal(validations.validateProduct({ ...productSamples[0], weightKg: 100 }).valid, true);
+	assert.equal(validations.validateProduct({ ...productSamples[0], weightKg: 100.01 }).valid, false);
 	assert.equal(validations.validateProduct({ ...productSamples[0], stockQuantity: -1 }).valid, false);
 	assert.equal(validations.validateProduct(null).valid, false);
 	assert.equal(validations.validateShipment(shipmentSample).valid, true);
