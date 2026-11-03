@@ -85,7 +85,7 @@ Abre [http://localhost:8000](http://localhost:8000) para ver la landing page y n
 - Datos estructurados Schema.org `Organization` con dirección y contacto
 - Encabezados jerárquicos (`h1` → `h2` → `h3`)
 - Atributos `lang` en el idioma base (español)
-- Botón de cambio de idioma preparado (sin lógica aún)
+- Interfaz disponible en español; no muestra un selector de idioma sin traducciones implementadas
 
 ## Próximos pasos (mejora continua)
 

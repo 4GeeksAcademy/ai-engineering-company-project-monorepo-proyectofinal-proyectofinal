@@ -12,17 +12,13 @@
 
   // ---- Utilidades -----------------------------------------------------
 
-  /** Busca el .field-error más cercano al elemento */
+  /** Busca el error dentro del contenedor más próximo, incluidos grupos. */
   function getErrorSpan(el) {
-    var parent = el.parentElement;
-    if (!parent) return null;
-    // Intentar en el padre
-    var span = parent.querySelector('.field-error');
-    if (span) return span;
-    // Intentar en el abuelo (para casos con wrapper extra)
-    if (parent.parentElement) {
-      span = parent.parentElement.querySelector('.field-error');
+    var currentContainer = el.parentElement;
+    while (currentContainer && currentContainer !== form) {
+      var span = currentContainer.querySelector('.field-error');
       if (span) return span;
+      currentContainer = currentContainer.parentElement;
     }
     return null;
   }
@@ -53,9 +49,9 @@
     email: {
       validate: function (value) {
         value = value.trim();
-        if (value.length === 0) return { valid: false, message: 'Ingresa un email corporativo válido (ejemplo: nombre@empresa.com)' };
+        if (value.length === 0) return { valid: false, message: 'Ingresa un email corporativo válido (ejemplo: <nombre@empresa.com>)' };
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) return { valid: false, message: 'Ingresa un email corporativo válido (ejemplo: nombre@empresa.com)' };
+        if (!emailRegex.test(value)) return { valid: false, message: 'Ingresa un email corporativo válido (ejemplo: <nombre@empresa.com>)' };
         return { valid: true };
       }
     },
@@ -109,6 +105,15 @@
       }
     },
 
+    comments: {
+      validate: function (value) {
+        if (value.length > 500) {
+          return { valid: false, message: 'Los comentarios no pueden exceder 500 caracteres (quedan 0)' };
+        }
+        return { valid: true };
+      }
+    },
+
     services: {
       validate: function () {
         var checkboxes = form.querySelectorAll('input[name="services"]:checked');
@@ -128,7 +133,7 @@
     privacy: {
       validate: function () {
         var checkbox = document.getElementById('privacy');
-        if (!checkbox || !checkbox.checked) return { valid: false, message: 'Debes aceptar la política de privacidad.' };
+        if (!checkbox || !checkbox.checked) return { valid: false, message: 'Debes aceptar la política de privacidad para continuar' };
         return { valid: true };
       }
     }
@@ -229,7 +234,7 @@
   function validateAll() {
     var fields = [
       'company', 'contactPerson', 'email', 'phone', 'website',
-      'country', 'productType', 'volume'
+      'country', 'productType', 'volume', 'comments'
     ];
     var allValid = true;
 
@@ -278,7 +283,7 @@
   // Campos de texto/select que se validan con input + blur + change
   var standardFields = [
     'company', 'contactPerson', 'email', 'phone', 'website',
-    'country', 'productType', 'volume'
+    'country', 'productType', 'volume', 'comments'
   ];
 
   // Blur: validar siempre al perder el foco
@@ -366,11 +371,15 @@
       return;
     }
 
-    // Éxito
-    var formData = new FormData(form);
-    var companyName = formData.get('company') || '';
+    var volumeField = document.getElementById('volume');
+    var productTypeField = document.getElementById('productType');
+    if (volumeField && volumeField.value === '0-100' && productTypeField && productTypeField.value) {
+      var shouldContinue = window.confirm('Para volúmenes menores a 100 envíos mensuales, nuestros servicios podrían no ser la solución más eficiente. ¿Seguro que quieres continuar?');
+      if (!shouldContinue) return;
+    }
 
-    showToast('¡Gracias, ' + companyName + '! Hemos recibido tu solicitud. Te contactaremos en menos de 24 horas.');
+    // Éxito
+    showToast('¡Gracias por tu interés en TrackFlow! Hemos recibido tu solicitud. Nuestro equipo comercial revisará tu información y te contactará en las próximas 24-48 horas para agendar una llamada y conocer tus necesidades logísticas en detalle. Si tienes alguna consulta urgente, escríbenos directamente a comercial@trackflow.com');
 
     // Reset visual de estados después de envío exitoso
     var allInputs = form.querySelectorAll('input, select, textarea');
