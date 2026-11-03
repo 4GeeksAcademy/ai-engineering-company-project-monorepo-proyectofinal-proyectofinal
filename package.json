@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit false",
+    "test": "npm run build && node --test"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
